@@ -1,0 +1,15 @@
+<svg id="レイヤー_1" data-name="レイヤー 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 300">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #000;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 8px;
+      }
+    </style>
+  </defs>
+  <title>arrow</title>
+  <polyline class="cls-1" points="141.333 15.923 7.726 149.53 142.274 284.077"/>
+</svg>

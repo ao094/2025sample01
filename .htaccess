@@ -1,0 +1,14 @@
+RewriteEngine On
+
+# サブドメインを考慮し、全てのドメインを www. 付きにリダイレクト
+RewriteCond %{HTTP_HOST} !^(www\.)?oops\.jp$ [NC]
+RewriteRule ^(.*)$ http://www.oops.jp/$1 [R=301,L]
+
+# HTTPSにリダイレクト
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# index.html / index.php のリダイレクト
+RewriteCond %{REQUEST_URI} !^/admin/
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^index\.(html|php)$ / [R=301,L]

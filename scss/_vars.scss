@@ -1,0 +1,334 @@
+@charset "utf-8";
+$base_color: #151414;
+$sub_color: #797676;
+$brown: #4b382d;
+$brown2: #7c232a;
+$black: #202121;
+$green: #3cb75f ;
+$gray: #cfd4d5;
+$gray2: #e1e6e6;
+$blue: #055d5e;
+$blue2: #00c2a2;
+$blue3: #b5e6c9;
+$blue4: #7E9FB9;
+$red: #bc0926;
+$orange: #fd7c31;
+$bg_gray: #ececf3;
+$yellow: #ffd803;
+$yellow2: #efc770;
+$gold: #bca259;
+$white: #ecf7f5;
+$text: #111111;
+$beige: #f7f4ea;
+$beige2: #f9f1dd;
+$font__ja: "YakuHanMP", "游明朝 Medium", "Yu Mincho", YuMincho, "Hiragino Mincho ProN", HGS明朝E, serif;
+$font__ja2: "YakuHanJP", Lato,'Noto Sans JP',"游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "ヒラギノ角ゴ ProN",
+ "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+$font__en:'Roboto Condensed', sans-serif;
+
+@mixin eng($weight: 600) {
+ font-family: $font__en;
+ font-weight: $weight;
+	text-transform: uppercase;
+
+}
+
+
+@mixin mincho($weight: 500) {
+ font-family: $font__ja;
+ font-weight: $weight;
+}
+
+@mixin number($weight: 500){
+ font-family:'Barlow', sans-serif;
+  font-weight: $weight;
+}
+
+@mixin title40 {
+	line-height: 1.8;
+	font-size: 4rem;
+
+	@include for-size(tablet) {
+		font-size: 3rem;
+		line-height: 1.6;
+	}
+
+	@include for-size(phone-only) {
+		font-size: 2rem;
+		letter-spacing: 0.15em;
+	}
+}
+
+@mixin title28 {
+	line-height: 1.8;
+	font-size: 2.8rem;
+
+	@include for-size(tablet) {
+		font-size: 2.2rem;
+		line-height: 1.6;
+	}
+
+	@include for-size(phone-only) {
+		font-size: 1.8rem;
+		letter-spacing: 0.15em;
+	}
+}
+
+@mixin title24 {
+	line-height: 1.8;
+	font-size: 2.4rem;
+
+	@include for-size(tablet) {
+		font-size: 2rem;
+		line-height: 1.6;
+	}
+
+	@include for-size(phone-only) {
+		font-size: 1.6rem;
+		letter-spacing: 0.15em;
+	}
+}
+
+@mixin title22 {
+	font-size: 2.2rem;
+
+	@include for-size(tablet) {
+		font-size: 1.8rem;
+	}
+
+	@include for-size(phone-only) {
+		font-size: 1.5rem;
+		letter-spacing: 0.15em;
+	}
+}
+
+@mixin title20 {
+	font-size: 2rem;
+
+	@include for-size(tablet) {
+		font-size: 1.6rem;
+	}
+
+	@include for-size(phone-only) {
+		font-size: 1.45rem;
+	}
+}
+
+@mixin title18 {
+	font-size: 1.8rem;
+
+	@include for-size(tablet) {
+		font-size: 1.5rem;
+	}
+
+	@include for-size(phone-only) {
+		font-size: 1.4rem;
+		letter-spacing: 0.15em;
+	}
+}
+
+@mixin title16 {
+	font-size: 1.6rem;
+
+	@include for-size(tablet) {
+		font-size: 1.4rem;
+	}
+
+	@include for-size(phone-only) {
+		font-size: 1.3rem;
+		letter-spacing: 0.15em;
+	}
+}
+
+//サイトのベースサイズ
+$base_width: 1100px;
+// width: ($base_width/6);
+
+// 付与するベンダープレフィックス
+$set_prefix: -webkit-, -moz-, -ms-, -o-, "";
+
+@mixin awesome($code, $fa-weight: 900) {
+ font-family: "Font Awesome 5 Free";
+ content: #{'"' + $code + '"'};
+ font-weight: $fa-weight;
+}
+
+$phone: \f879;
+$fax: \f1ac;
+$mail: \f0e0;
+
+@mixin font-size($size, $base: 16) {
+ font-size: $size + px; // fallback for old browsers
+ font-size: ($size / $base) + rem;
+}
+
+@mixin vertical-writing {
+ -ms-writing-mode: tb-rl;
+ writing-mode: vertical-rl;
+ -webkit-text-orientation: mixed;
+ text-orientation: mixed;
+ -webkit-font-feature-settings: "pkna";
+ font-feature-settings: "pkna";
+}
+
+@mixin vertical-align {
+ position: relative;
+ top: 50%;
+ transform: translateY(-50%);
+}
+
+/* アニメーションベンダープレフィックス込み指定 */
+@mixin keyframes($animation-name) {
+ @keyframes #{$animation-name} {
+  @content;
+ }
+
+ @-moz-keyframes #{$animation-name} {
+  @content;
+ }
+
+ @-webkit-keyframes #{$animation-name} {
+  @content;
+ }
+}
+
+/* アニメーションベンダープレフィックス込み指定 */
+@mixin animation($animation-name) {
+ animation: #{$animation-name};
+ -moz-animation: #{$animation-name};
+ -webkit-animation: #{$animation-name};
+ animation-fill-mode: both;
+ -moz-animation-fill-mode: both;
+ -webkit-animation-fill-mode: both;
+}
+
+$mq-breakpoints: (
+ "phone-s": 320px,
+ "phone-only": 639px,
+	"mini": 765px,
+ "tablet": 1025px,
+ "pro": 1101px,
+ "pc-small2": 1300px,
+ "pc-small": 1440px,
+ "pc-big": 1921px,
+);
+/********************/
+
+// スマホ基準(〜以上)
+@mixin min-size($breakpoint: phone-only) {
+ @media screen and (min-width: #{map-get($mq-breakpoints, $breakpoint)}) {
+  @content;
+ }
+}
+
+// PC基準(〜未満)
+@mixin for-size($breakpoint: phone-only) {
+ @media screen and (max-width: #{map-get($mq-breakpoints, $breakpoint)}) {
+  @content;
+ }
+}
+
+@mixin landscape($size) {
+ @if $size==tablet-wide {
+  @media screen and (max-width: 890px) and (orientation: landscape) {
+   @content;
+  }
+ }
+}
+
+@mixin landscape($size) {
+ @if $size==tablet-wide {
+  @media screen and (max-width: 890px) and (orientation: landscape) {
+   @content;
+  }
+ }
+}
+
+@mixin wide_width {
+ max-width: calc(100% - 50px);
+ margin-left: auto;
+ margin-right: auto;
+
+ @include for-size(tablet) {
+  max-width: calc(100% - 15px);
+ }
+}
+
+@mixin transition($property: all, $duration: 0.45s, $ease: cubic-bezier(0.65, 0, 0.076, 1)) {
+ transition: $property $duration $ease;
+}
+
+// margin
+
+@mixin txtShadow($color: $base_color) {
+ text-shadow: 0px 0px 3px $color, 0px 0px 6px $color, 0px 0px 8px $color;
+ // 0px 0px 10px $color,
+ // 0px 0px 15px $color,
+ // 0px 0px 12px rgba($color, .5);
+}
+
+@mixin wide_width {
+ max-width: calc(100% - 50px);
+ margin-left: auto;
+ margin-right: auto;
+
+ @include for-size(tablet) {
+  max-width: calc(100% - 15px);
+ }
+}
+
+@function clothoid-gradient($_dir: "to bottom", $_color: #000000, $_alpha_from: 1, $_alpha_to: 0) {
+ $diff: $_alpha_from - $_alpha_to;
+
+ @if type-of($_dir) ==string {
+  $_dir: unquote($_dir);
+ }
+
+ @return linear-gradient(
+  $_dir,
+  rgba($_color, $_alpha_from) 0%,
+  rgba($_color, $_alpha_from - $diff * 0.7) 50%,
+  rgba($_color, $_alpha_from - $diff * 0.85) 65%,
+  rgba($_color, $_alpha_from - $diff * 0.925) 75.5%,
+  rgba($_color, $_alpha_from - $diff * 0.963) 82.85%,
+  rgba($_color, $_alpha_from - $diff * 0.981) 88%,
+  rgba($_color, $_alpha_to) 100%
+ );
+}
+
+@mixin clothoid-gradient($_dir: "to bottom", $_color: #000000, $_alpha_from: 1, $_alpha_to: 0) {
+ background-image: clothoid-gradient($_dir, $_color, $_alpha_from, $_alpha_to);
+}
+
+// @include clothoid-gradient(to bottom, $base_color);
+
+@function clothoid-mix-gradient($_dir: "to bottom", $_color_from: #000000, $_color_to: #ffffff) {
+ @if type-of($_dir) ==string {
+  $_dir: unquote($_dir);
+ }
+
+ @return linear-gradient(
+  $_dir,
+  mix($_color_to, $_color_from, 0%) 0%,
+  mix($_color_to, $_color_from, 70%) 50%,
+  mix($_color_to, $_color_from, 85%) 65%,
+  mix($_color_to, $_color_from, 92.5%) 75.5%,
+  mix($_color_to, $_color_from, 96.3%) 82.85%,
+  mix($_color_to, $_color_from, 98.1%) 88%,
+  mix($_color_to, $_color_from, 100%) 100%
+ );
+}
+
+@mixin clothoid-mix-gradient($_dir: "to bottom", $_color_from: #000000, $_color_to: #ffffff) {
+ background-image: clothoid-mix-gradient($_dir, $_color_from, $_color_to);
+}
+
+// @include clothoid-mix-gradient(to bottom, $base_color, $sub_color);
+
+@mixin hover-anim {
+ transition: 0.3s all cubic-bezier(0.18, 0.06, 0.23, 1);
+}
+
+@mixin hover-anim2 {
+ transition: 0.5s all cubic-bezier(0.55, 0.05, 0.22, 0.99);
+}
