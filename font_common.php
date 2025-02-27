@@ -25,3 +25,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Raleway+Dots&text=Posimed&display=swap" rel="stylesheet" media="print" onload="this.media = 'all'">
 
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Noto+Sans+JP:wght@400;600;800&display=swap" rel="stylesheet" media="print" onload="this.media = 'all'">
+
+<!-- robots.txt -->
+<meta name="robots" content="noindex, nofollow">
